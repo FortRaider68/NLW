@@ -14,21 +14,24 @@ function populateUFs(){
 populateUFs();
 
 function populateCitys(event){
-    const citySelect = document.querySelector("select[name=city]");
-    const stateInput = document.getElementById("state");
+    const citySelect = document.querySelector("[name=city]");
+    const stateInput = document.querySelector("[name=state]");
 
     const UfID = event.target.value
 
     const indexOfSelectedState = event.target.selectedIndex;
-    console.log(stateInput)
 
     stateInput.value = event.target.options[indexOfSelectedState].text;
+
+    citySelect.innerHTML = "<option>Selecione a cidade.</option>";
+    citySelect.disabled = true;
 
     fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${UfID}/municipios`)
     .then(res => res.json())
     .then(cities =>{
+        
         for( const city of cities){
-            citySelect.innerHTML += `<option value="${city.id}">${city.nome}</option>`
+            citySelect.innerHTML += `<option value="${city.nome}">${city.nome}</option>`
         }
         citySelect.disabled = false;
     })
@@ -37,3 +40,40 @@ function populateCitys(event){
 document
     .querySelector("select[name=uf]")
     .addEventListener("change",populateCitys)
+
+
+
+
+
+let selectedItems = []
+
+const ItensToCollect = document.querySelectorAll(".itens-grid ul li");
+
+for(const Item of ItensToCollect){
+    Item.addEventListener("click",handleSelectedItems)
+}
+
+function handleSelectedItems(event){
+    const collectedItems = document.querySelector("input[name=items]")
+    
+    const ItemLI = event.target
+    
+    ItemLI.classList.toggle("selected")
+    
+    const itemID = ItemLI.dataset.id
+
+
+    const AlreadySelected = selectedItems.findIndex((item)=> item == itemID)
+
+    if (AlreadySelected >=0){
+        const filteredItens =  selectedItems.filter(item => {
+            const ItemIsDiferent = item != itemID
+            return ItemIsDiferent
+        })
+        selectedItems = filteredItens
+    }else{
+        selectedItems.push(itemID)
+    }
+    collectedItems.value = selectedItems;
+    
+}

@@ -11,9 +11,10 @@
 <head>
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ecoleta</title>
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/modal.css">
     <link rel="stylesheet" href="./css/responsive.css">
 
 
@@ -39,5 +40,24 @@
             </main>
         </div>
     </div>
+   
+    <div id="modal" class="hide">
+        <div class="content">
+            <header>
+                <h1>Pontos de coleta</h1>
+                <a href="#">Fechar</a>
+            </header>
+            <form action="./Search.html">
+                <label for="Search">Cidade</label>
+                <div class="search field">
+                    <input type="text" name="search" placeholder="Digite a cidade">
+                    <button>
+                        <img src="./extras-aula-1/icones/search.svg" alt="Buscar">
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="./scripts/index.js"></script>
 </body>
 </html>
