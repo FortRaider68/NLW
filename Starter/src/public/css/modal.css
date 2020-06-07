@@ -28,7 +28,7 @@
 }
 
 #modal header a{
-    background: url('../extras-aula-1/icones/x.svg');
+    background: url('../img/extras-aula-1/icones/x.svg');
     width: 20px;
     height: 20px;
     display: flex;
@@ -75,4 +75,15 @@
 #modal form button:hover{
     background-color:#2fb85e;
     cursor: pointer;
+}
+
+#modal.point .content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#modal.point h1{
+    color: white;
+    margin-top: 32px;
 }

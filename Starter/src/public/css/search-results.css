@@ -1,11 +1,15 @@
+body{
+    background-color: white;
+}
 body::after{
     content: '';
-    position: fixed;
-    background-color: white;
+    position: absolute;
+    background-color: #f0f0f5;
     right: 0;
     left: 0;
-    bottom: -100%;
-    top: 250px;
+    bottom: 0;
+    top: 0;
+    height: 16rem;
     z-index: -1;
 }
 #page-search-results{
@@ -30,7 +34,7 @@ body::after{
 
 #page-search-results header a span{
     margin-right: 16px;
-    background-image: url('../extras-aula-1/icones/arrow-left.svg');
+    background-image: url('../img/extras-aula-1/icones/arrow-left.svg');
     width: 20px;
     height: 24px;
     /* display: flex; */
